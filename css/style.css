@@ -181,21 +181,208 @@ body {
    HERO
 ========================= */
 
+/* =========================
+   HERO
+========================= */
+
 .hero {
     min-height: 100vh;
-    max-width: 1200px;
+
+    max-width: 1400px;
+
     margin: auto;
 
-    padding: 140px 30px 80px;
+    padding: 140px 60px 80px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 70px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 82% 35%,
+            rgba(122, 155, 130, 0.14),
+            transparent 25%
+        ),
+        var(--cream);
+}
+/* =========================
+   HERO NATURAL DECORATION
+========================= */
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 600px;
+    height: 350px;
+
+    right: -120px;
+    bottom: -100px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(31, 77, 58, 0.08),
+            rgba(122, 155, 130, 0.18)
+        );
+
+    border-radius: 50% 50% 0 0;
+
+    transform: rotate(-8deg);
+
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    left: -150px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(122, 155, 130, 0.10);
+
+    z-index: 0;
+}
+/* =========================
+   MACHAPUCHARE HERO IMAGE
+========================= */
+
+.hero-mountains {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(247, 241, 227, 0.96) 0%,
+            rgba(247, 241, 227, 0.82) 28%,
+            rgba(247, 241, 227, 0.35) 55%,
+            rgba(247, 241, 227, 0.08) 100%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(247, 241, 227, 0.12) 0%,
+            transparent 35%,
+            rgba(247, 241, 227, 0.35) 82%,
+            var(--cream) 100%
+        ),
+        url("../images/hero/machapuchare.jpg");
+
+    background-size: cover;
+
+    background-position:
+        center center;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.95;
+}
+
+
+/* Soft natural fade at bottom */
+
+.hero-mountains::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 180px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--cream)
+        );
+
+    z-index: 2;
+}
+
+
+/* Soft cream fade on left */
+
+.hero-mountains::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cream) 0%,
+            rgba(247, 241, 227, 0.72) 18%,
+            rgba(247, 241, 227, 0.15) 45%,
+            transparent 70%
+        );
+
+    z-index: 1;
+}
+
+/* FRONT MOUNTAIN */
+
+.mountain-front {
+    position: absolute;
+
+    left: -5%;
+    bottom: -55px;
+
+    width: 110%;
+    height: 150px;
+
+    background:
+        rgba(31, 77, 58, 0.12);
+
+    clip-path: polygon(
+        0% 100%,
+        10% 72%,
+        20% 82%,
+        31% 55%,
+        42% 75%,
+        52% 45%,
+        62% 70%,
+        73% 50%,
+        84% 77%,
+        94% 60%,
+        100% 70%,
+        100% 100%
+    );
 }
 
 .hero-content {
     flex: 1;
+
+    position: relative;
+    z-index: 2;
 }
 
 .hero-small-text {
@@ -278,43 +465,77 @@ body {
    PROFILE IMAGE
 ========================= */
 
-.hero-image { 
-    width: 420px; 
-    height: 500px; 
-    position: relative; 
- 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
- 
-    filter: drop-shadow(0 20px 40px rgba(31, 77, 58, 0.10)); 
-} 
+.hero-image {
+    width: 460px;
+    height: 540px;
 
-.image-frame { 
-    width: 350px; 
-    height: 430px; 
- 
-    border-radius: 180px 180px 35px 35px; 
- 
-    overflow: hidden; 
- 
-    border: none; 
- 
-    box-shadow: 
-        0 25px 60px rgba(31, 77, 58, 0.20); 
- 
-    position: relative; 
-    z-index: 2; 
-} 
- 
-.image-frame img { 
-    width: 100%; 
-    height: 100%; 
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(
+            0 25px 45px
+            rgba(31, 77, 58, 0.12)
+        );
+}
+/* =========================
+   PROFILE IMAGE FRAME
+========================= */
+
+.image-frame {
+    width: 350px;
+    height: 430px;
+
+    border-radius:
+        180px 180px 35px 35px;
+
+    overflow: hidden;
+
+    border: none;
+
+    box-shadow:
+        0 25px 60px
+        rgba(31, 77, 58, 0.20);
+
+    position: relative;
+
+    z-index: 2;
+
+    background: var(--light-cream);
+}
+
+
+/* PROFILE PHOTO */
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+
     object-fit: cover;
 
-    /* Smooth zoom effect */
-    transition: transform 0.6s ease, filter 0.6s ease;
-} 
+    display: block;
+
+    transform: scale(1.03);
+
+    transition:
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* IMAGE-ONLY ZOOM */
+
+.image-frame:hover img {
+    transform: scale(1.10);
+}
+
+.image-frame:hover img {
+    transform: scale(1.08);
+}
 
 /* Zoom when mouse is over the photo */
 .image-frame {
@@ -347,22 +568,97 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.image-decoration { 
-    position: absolute; 
- 
-    width: 350px; 
-    height: 430px; 
- 
-    border: 2px solid var(--sage); 
- 
-    border-radius: 180px 180px 35px 35px; 
- 
-    top: 28px; 
-    left: 48px; 
- 
-    z-index: 1; 
- 
-    opacity: 0.75; 
+.image-decoration {
+    position: absolute;
+
+    width: 370px;
+    height: 460px;
+
+    top: 38px;
+    left: 65px;
+
+    border:
+        2px solid
+        rgba(122, 155, 130, 0.65);
+
+    border-radius:
+        200px 150px 60px 90px;
+
+    transform: rotate(3deg);
+
+    z-index: 1;
+
+    opacity: 0.8;
+}
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    right: 10px;
+    top: 80px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122, 155, 130, 0.22),
+            transparent 68%
+        );
+
+    border-radius: 50%;
+
+    z-index: 0;
+
+    filter: blur(10px);
+}
+.hero-badge {
+    position: absolute;
+
+    right: 5px;
+    bottom: 35px;
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(31, 77, 58, 0.95);
+
+    color: var(--light-cream);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid
+        rgba(247, 241, 227, 0.8);
+
+    box-shadow:
+        0 15px 35px
+        rgba(31, 77, 58, 0.20);
+
+    z-index: 5;
+}
+
+.hero-badge span {
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    color: #b8cdb9;
+
+    margin-bottom: 3px;
+}
+
+.hero-badge strong {
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 /* =========================
@@ -1174,6 +1470,19 @@ body {
     border-bottom: 1px solid rgba(31, 77, 58, 0.10);
 
     box-shadow: 0 10px 25px rgba(31, 77, 58, 0.08);
+}
+.hero-mountains {
+    background-position: 58% center;
+    
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(247, 241, 227, 0.80) 0%,
+            rgba(247, 241, 227, 0.25) 45%,
+            rgba(247, 241, 227, 0.75) 85%,
+            var(--cream) 100%
+        ),
+        url("../images/hero/machapuchare.jpg");
 }
 
 .nav-menu.active {
