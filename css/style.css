@@ -14,11 +14,10 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f7f1e3;
+    background: #f4f3ef;
     color: #26332c;
     line-height: 1.6;
 }
-
 
 /* =========================
    COLORS
@@ -77,25 +76,6 @@ body {
    NAVIGATION
 ========================= */
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(247, 241, 227, 0.95);
-    border-bottom: 1px solid rgba(31, 77, 58, 0.1);
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 .logo img {
     height: 48px;
     width: auto;
@@ -149,24 +129,6 @@ body {
     width: 100%;
 }
 
-.nav-menu {
-    list-style: none;
-
-    display: flex;
-    gap: 30px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.nav-menu a:hover {
-    color: var(--forest);
-}
-
 .menu-toggle {
     display: none;
     border: none;
@@ -175,11 +137,6 @@ body {
     font-size: 28px;
     cursor: pointer;
 }
-
-
-/* =========================
-   HERO
-========================= */
 
 /* =========================
    HERO
@@ -302,81 +259,6 @@ body {
     opacity: 0.95;
 }
 
-
-/* Soft natural fade at bottom */
-
-.hero-mountains::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 180px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            var(--cream)
-        );
-
-    z-index: 2;
-}
-
-
-/* Soft cream fade on left */
-
-.hero-mountains::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cream) 0%,
-            rgba(247, 241, 227, 0.72) 18%,
-            rgba(247, 241, 227, 0.15) 45%,
-            transparent 70%
-        );
-
-    z-index: 1;
-}
-
-/* FRONT MOUNTAIN */
-
-.mountain-front {
-    position: absolute;
-
-    left: -5%;
-    bottom: -55px;
-
-    width: 110%;
-    height: 150px;
-
-    background:
-        rgba(31, 77, 58, 0.12);
-
-    clip-path: polygon(
-        0% 100%,
-        10% 72%,
-        20% 82%,
-        31% 55%,
-        42% 75%,
-        52% 45%,
-        62% 70%,
-        73% 50%,
-        84% 77%,
-        94% 60%,
-        100% 70%,
-        100% 100%
-    );
-}
 
 .hero-content {
     flex: 1;
@@ -507,6 +389,9 @@ body {
     z-index: 2;
 
     background: var(--light-cream);
+     transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
 
@@ -530,44 +415,18 @@ body {
 /* IMAGE-ONLY ZOOM */
 
 .image-frame:hover img {
-    transform: scale(1.10);
-}
-
-.image-frame:hover img {
     transform: scale(1.08);
 }
 
 /* Zoom when mouse is over the photo */
-.image-frame {
-    width: 350px; 
-    height: 430px; 
-    border-radius: 180px 180px 35px 35px;
-    overflow: hidden;
-
-    border: none;
-
-    box-shadow: 
-        0 25px 60px rgba(31, 77, 58, 0.20);
-
-    position: relative;
-    z-index: 2;
-
-    /* Smooth frame zoom */
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
 
 .image-frame:hover {
-    transform: scale(1.30);
+    transform: scale(1.20);
 
     box-shadow:
         0 30px 70px rgba(31, 77, 58, 0.28);
 }
 
-.image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 .image-decoration {
     position: absolute;
 
@@ -708,10 +567,25 @@ body {
    ABOUT
 ========================= */
 
-.about-section {
-    background: var(--cream);
-}
+/* =========================
+   ABOUT BACKGROUND
+========================= */
 
+.about-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+    linear-gradient(
+        rgba(247, 241, 227, 0.50),
+        rgba(247, 241, 227, 0.45)
+    ),
+    url("../images/backgrounds/about.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 .about-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -809,10 +683,6 @@ body {
 /* =========================
    EXPERIENCE
 ========================= */
-
-.experience-section {
-    background: var(--light-cream);
-}
 
 .timeline {
     position: relative;
@@ -932,7 +802,7 @@ body {
 
     font-size: 27px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px 0 15px;
 }
 
 
@@ -964,18 +834,29 @@ body {
 .experience-list li::marker {
     color: var(--sage);
 }
-/* =========================
-   SKILLS
-========================= */
 
 /* =========================
    SKILLS
+========================= */
+/* =========================
+   SKILLS BACKGROUND
 ========================= */
 
 .skills-section {
-    background: var(--light-cream);
-}
+    position: relative;
+    overflow: hidden;
 
+    background:
+        linear-gradient(
+            rgba(255, 253, 247, 0.70),
+            rgba(255, 253, 247, 0.45)
+        ),
+        url("../images/backgrounds/skills.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 .section-intro {
     max-width: 700px;
     margin-top: 20px;
@@ -1100,6 +981,25 @@ body {
 .experience-container {
     max-width: 800px;
 }
+/* =========================
+   EXPERIENCE BACKGROUND
+========================= */
+
+.experience-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 253, 247, 0.50),
+            rgba(255, 253, 247, 0.45)
+        ),
+        url("../images/backgrounds/experience.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 .experience-card {
     padding: 35px;
@@ -1116,21 +1016,29 @@ body {
     font-weight: 700;
 }
 
-.experience-card h3 {
-    font-size: 28px;
-    color: var(--forest);
-    margin: 10px 0;
-}
-
 
 /* =========================
    PROJECTS
 ========================= */
+/* =========================
+   PROJECTS BACKGROUND
+========================= */
 
 .projects-section {
-    background: var(--cream);
-}
+    position: relative;
+    overflow: hidden;
 
+    background:
+        linear-gradient(
+            rgba(247, 241, 227, 0.50),
+            rgba(247, 241, 227, 0.45)
+        ),
+        url("../images/backgrounds/projects.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 .projects-grid {
     display: grid;
 
@@ -1283,9 +1191,24 @@ body {
 /* =========================
    CONTACT
 ========================= */
+/* =========================
+   CONTACT BACKGROUND
+========================= */
 
 .contact-section {
-    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(22, 57, 43, 0.60),
+            rgba(22, 57, 43, 0.45)
+        ),
+        url("../images/backgrounds/contact.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     color: var(--cream);
 }
@@ -1538,7 +1461,6 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
     }
-}
 .timeline {
     padding-left: 30px;
 }
@@ -1562,13 +1484,52 @@ body {
 
     .logo img {
         height: 42px;
+    }	
+    .about-section,
+    .skills-section,
+    .experience-section,
+    .projects-section,
+    .contact-section {
+        background-attachment: scroll;
     }
-.nav-menu li {
+    .footer {
+        width: 100%;
+        padding: 25px 20px;
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+    .contact-container {
     width: 100%;
-    text-align: center;
 }
 
-.nav-menu a {
-    display: block;
-    padding: 14px 20px;
-}	
+.contact-intro {
+    padding: 0 5px;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+.contact-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.contact-card {
+    width: 100%;
+    padding: 25px 22px;
+}
+
+.contact-card h3 {
+    font-size: 19px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    overflow-wrap: break-word;
+}
+
+.contact-action {
+    margin-top: 35px;
+}
+}
