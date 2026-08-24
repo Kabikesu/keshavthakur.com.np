@@ -50,10 +50,7 @@ body {
     background:
         rgba(247, 243, 231, 0);
 
-    backdrop-filter: blur(12px);
-
-    border-bottom:
-        1px solid rgba(31, 77, 58, 0.08);
+    backdrop-filter: blur(5px);
 }
 
 .navbar {
